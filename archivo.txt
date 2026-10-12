@@ -1,0 +1,62 @@
+----------------------------- Configuración Global-----------------------------
+
+git config --global user.name "Daniel Saenz": Entra en configuración global, donde todos los cambios aplicados se aplicarán independientemente del proyecto en el que estemos. En este caso agrega de user.name ("Daniel Saenz")
+
+git config --global user.email danism@gmail.com: El principio es el mismo solo que en este caso agregamos un email, de preferencia el registrado en GitHub.
+
+git config --global core.editor "code --wait": Establece el editor de código predeterminado para trabajar con Git. En este caso le indicamos VS Code.
+
+git config --global -e: Abre el archivo de configuración global dentro del editor de código que definimos en el paso anterior.
+
+git config --global core.autocrfl true: Para recibir cambios dentro del repositorio entre máquinas de distinto SO Linux/Mac o Windows
+
+git config -h: Lista todas las configuraciones con las que podemos jugar.
+
+--------------------------- Navegación entre directorios ----------------------------
+cd workspace/: El comando cd permite navegar entre rutas varios archivos
+
+ls: muestra los elementos sean carpetas o archivos que se encuentran en la ruta actual que estamos.
+
+ls -a: Nos muestra aquellos archivos que por alguna razón permanecen ocultos aplicando aún el filtro "ls".
+
+pwd: Muestra la ruta actual en la que nos encontramos
+
+***Creación de directorios***
+mkdir nameDirectorio 
+
+---------------------------- Comandos con Git ----------------------------
+git init: Inicializar proyectos gestiondos con Git
+git status: Muestra el estado actual de nuestro repositorio
+git add [nombre archivo]: Agregar los archivos o versiones que serán comiteados para el siguiente stage.
+git add *.txt: Prepara para el commit todos aquellos archivos con la terminación .txt .
+git add . : Agregar todos los archivos, con cambios, del repositorio al commit.
+git commit -m "[Mensaje del cambio]":
+
+****Caso Especial*****
+Cuando se modifiquen archivos que esten "commiteados" se puede volver a agregar con el comando "git add [nombre archivo/s]". Después de esto:
+
+git commit: Este comando abre nuestro editor de texto designado. Nos tenemos que posicionar arriba del todo y poner el comentario que identifica al commit nuevo. Luego se guardan los cambios y se sale del archivo que abrió la terminal.
+
+-------------------------------- Continuamos ---------------------------------
+rm archivo2: Esto elimina el documento con nombre de archivo2.
+git restore --staged archivo2: Quita los archivos transferidos del comando (git add)
+git restore archivo2: Si de casualidad fue un error eliminar cierto archivo, podemos volver a recuperar el archivo2 con el término "restore".
+mv Archivo1.txt archivo.txt: Esto cambia el nombre del Archivo1.txt a archivo.txt .
+git status -s: Alternativa más limpia que muestra menos texto.
+git diff: Muestra todos los cambios pero que todavía no ha sido pasados a la etapa de stage.
+git diff --staged: Muestra todos los cambios que se encuentran en la etapa de staged.
+git log --oneline: Muestra todos los commits hechos en el repositorio
+
+***************** Trabajando con Ramas *********************
+Existe una rama sobre la que todo programador va a empezar al crear un proyecto git y es la rama principal. Esta es la rama "main". Pero habrán casos en los que trabajemos entre varios desarrolladores dentro de un mismo repositorio git. Para esto creamos bifurcaciones de la branch main sin alterar lo que hay dentro de esta y así cada uno trabaja sin pisotear el progreso del otro.
+
+git checkout -b ramab: Crea una nueva rama con el nombre de "ramab".
+git branch: Muestra el nombre de todas las ramas existentes.
+git checkout main: Cambia a la rama principal llamada "main" en mi caso "master"
+
+***************** Trabajando con GitHub *********************
+git remote add origin https://github.com/Danimelon20/miweb.git: Crea un servidor y da el link de la ruta de donde nosotros guardaremos los cambios del proyecto que realicemos
+
+*** Contexto ***
+Como nuestro repositorio de GitHub no tiene creada la rama main hacemos el siguiente comando:
+git push -u origin main: Crea la rama con -u e indica en donde queremos que sea creada (origin) bajo el nombre de main
